@@ -16,16 +16,12 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
-"HOA revenge stories", "HOA drama stories", "HOA vs homeowner stories", "HOA power abuse stories",
-"Unfair HOA rules stories", "HOA fines gone wrong stories", "HOA corruption stories", "HOA nightmare stories",
-"HOA meeting drama stories", "HOA lawsuit stories", "HOA board conflict stories", "HOA gone too far stories",
-"HOA ridiculous rule stories", "HOA pets dispute stories", "HOA parking drama stories",
-"HOA lawn care fight stories", "HOA noise complaint stories", "HOA bullying stories",
-"HOA election drama stories", "HOA fraud stories", "HOA lawsuit victory stories",
-"HOA neighborhood drama stories", "HOA security camera dispute stories", "HOA swimming pool drama stories",
-"HOA trash can dispute stories", "HOA holiday decoration dispute stories",
-"HOA paint color fight stories", "HOA violation notice stories", "HOA homeowner revenge stories",
-"HOA fees dispute stories"
+"HOA revenge", "HOA drama", "HOA abuse", "HOA corruption", "HOA nightmare",
+"HOA lawsuit", "HOA conflict", "HOA gone wrong", "HOA ridiculous rules", "HOA pets",
+"HOA parking", "HOA lawn fight", "HOA noise", "HOA bullying", "HOA election",
+"HOA fraud", "HOA victory", "HOA neighbors", "HOA cameras", "HOA pool",
+"HOA trash", "HOA holidays", "HOA paint", "HOA violations", "HOA revenge stories",
+"HOA disputes", "HOA complaints", "HOA power abuse", "HOA fees", "HOA fines"
 ]
 
 # Fetch Data Button
