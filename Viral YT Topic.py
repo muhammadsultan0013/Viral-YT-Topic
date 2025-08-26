@@ -9,12 +9,14 @@ YOUTUBE_VIDEO_URL = "https://www.googleapis.com/youtube/v3/videos"
 YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
 
 # Streamlit App Title
-st.title("YouTube Viral Topics Tool")
+st.title("YouTube Viral Story Topics Tool")
 
 # Input Fields
 days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=5)
+min_length = st.number_input("Enter Minimum Video Length (minutes):", min_value=0, value=0)
+max_length = st.number_input("Enter Maximum Video Length (minutes):", min_value=60, value=15)
 
-# List of broader keywords
+# ✅ Updated Keywords (Story Niches)
 keywords = [
     "Reddit stories", "AITA stories", "ProRevenge stories", "Entitled parents stories", "Workplace drama stories",
     "Family drama stories", "Cheating relationship stories", "Malicious compliance stories", "Karma stories",
@@ -30,6 +32,10 @@ keywords = [
     "Scary elevator stories", "Scary mall stories", "Scary road trip stories",
     "Courtroom drama stories", "Weird law stories", "Celebrity scandal stories"
 ]
+
+# Convert minutes to seconds for filtering
+min_seconds = min_length * 60
+max_seconds = max_length * 60
 
 # Fetch Data Button
 if st.button("Fetch Data"):
@@ -57,7 +63,6 @@ if st.button("Fetch Data"):
             response = requests.get(YOUTUBE_SEARCH_URL, params=search_params)
             data = response.json()
 
-            # Check if "items" key exists
             if "items" not in data or not data["items"]:
                 st.warning(f"No videos found for keyword: {keyword}")
                 continue
@@ -70,8 +75,8 @@ if st.button("Fetch Data"):
                 st.warning(f"Skipping keyword: {keyword} due to missing video/channel data.")
                 continue
 
-            # Fetch video statistics
-            stats_params = {"part": "statistics", "id": ",".join(video_ids), "key": API_KEY}
+            # Fetch video statistics + duration
+            stats_params = {"part": "statistics,contentDetails", "id": ",".join(video_ids), "key": API_KEY}
             stats_response = requests.get(YOUTUBE_VIDEO_URL, params=stats_params)
             stats_data = stats_response.json()
 
@@ -99,13 +104,19 @@ if st.button("Fetch Data"):
                 views = int(stat["statistics"].get("viewCount", 0))
                 subs = int(channel["statistics"].get("subscriberCount", 0))
 
-                if subs < 3000:  # Only include channels with fewer than 3,000 subscribers
+                # Parse ISO 8601 Duration (PT#M#S)
+                import isodate
+                duration = isodate.parse_duration(video["contentDetails"]["duration"]).total_seconds()
+
+                # Apply duration filter
+                if subs < 3000 and min_seconds <= duration <= max_seconds:
                     all_results.append({
                         "Title": title,
                         "Description": description,
                         "URL": video_url,
                         "Views": views,
-                        "Subscribers": subs
+                        "Subscribers": subs,
+                        "Duration (min)": round(duration / 60, 2)
                     })
 
         # Display results
@@ -117,12 +128,12 @@ if st.button("Fetch Data"):
                     f"**Description:** {result['Description']}  \n"
                     f"**URL:** [Watch Video]({result['URL']})  \n"
                     f"**Views:** {result['Views']}  \n"
-                    f"**Subscribers:** {result['Subscribers']}"
+                    f"**Subscribers:** {result['Subscribers']}  \n"
+                    f"**Duration:** {result['Duration (min)']} min"
                 )
                 st.write("---")
         else:
-            st.warning("No results found for channels with fewer than 3,000 subscribers.")
+            st.warning("No results found with given filters.")
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
-
