@@ -16,19 +16,16 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
-"Healthy diet tips", "Weight loss transformation stories", "Keto diet success stories", "Intermittent fasting motivation",
-"Vegan diet health stories", "Plant-based diet success stories", "Low-carb diet results", "Paleo diet transformation stories",
-"Heart health diet tips", "Diabetes diet success stories", "Cholesterol control diet stories", "Blood pressure health stories",
-"Gym workout transformation stories", "Home workout motivation stories", "Bodybuilding journey stories", "Fitness over 40 stories",
-"Yoga transformation stories", "Meditation healing stories", "Mental health recovery stories", "Stress relief motivation stories",
-"Anxiety overcoming stories", "Depression recovery motivation", "Sleep improvement health stories", "Productivity health hacks",
-"Healthy morning routine stories", "Night routine health tips", "Skin care health stories", "Hair growth success stories",
-"Healthy aging motivation", "Longevity lifestyle stories", "Weight gain transformation stories", "Muscle building health stories",
-"Women’s health motivation", "Men’s health improvement stories", "Pregnancy health tips", "Postpartum health recovery stories",
-"Child health nutrition stories", "Teen fitness transformation stories", "Student health productivity stories", "Workplace health hacks",
-"Immune system boosting tips", "Cold and flu recovery stories", "Gut health motivation", "Detox health journey stories",
-"Addiction recovery health stories", "Smoking quit success stories", "Alcohol-free life stories", "Cancer survivor motivation stories",
-"Chronic illness motivation", "Autoimmune disease stories"
+"HOA revenge stories", "HOA drama stories", "HOA vs homeowner stories", "HOA power abuse stories",
+"Unfair HOA rules stories", "HOA fines gone wrong stories", "HOA corruption stories", "HOA nightmare stories",
+"HOA meeting drama stories", "HOA lawsuit stories", "HOA board conflict stories", "HOA gone too far stories",
+"HOA ridiculous rule stories", "HOA pets dispute stories", "HOA parking drama stories",
+"HOA lawn care fight stories", "HOA noise complaint stories", "HOA bullying stories",
+"HOA election drama stories", "HOA fraud stories", "HOA lawsuit victory stories",
+"HOA neighborhood drama stories", "HOA security camera dispute stories", "HOA swimming pool drama stories",
+"HOA trash can dispute stories", "HOA holiday decoration dispute stories",
+"HOA paint color fight stories", "HOA violation notice stories", "HOA homeowner revenge stories",
+"HOA fees dispute stories"
 ]
 
 # Fetch Data Button
