@@ -16,13 +16,19 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
- "Rich vs poor mindset motivation", "Passive income motivation", "Millionaire mindset motivation", "Motivation to invest & grow", 
-"Motivation to save money", "Motivation for freelancers", "Motivation for job seekers", "Motivation for workplace stress", "Motivation for lonely people", 
-"Motivation for tough times", "Overcoming failure motivation", "Motivation for depression", "Confidence building motivation", 
-"Discipline & habits motivation", "Positive thinking motivation", "Sports motivational stories", 
-"Weight loss transformation motivation", "Study motivation for exams", "Motivation for college students", 
-"Side hustle motivation", "Entrepreneurship motivation", "Night motivation before sleep", "Morning motivation routines", 
-"Daily motivational quotes"
+    "Reddit stories", "AITA stories", "ProRevenge stories", "Entitled parents stories", "Workplace drama stories",
+    "Family drama stories", "Cheating relationship stories", "Malicious compliance stories", "Karma stories",
+    "Scary horror stories", "Creepypasta horror stories", "Haunted house stories", "Ghost encounter stories",
+    "Scary camping stories", "Scary neighbor stories", "Babysitter horror stories", "Paranormal hospital stories",
+    "Dark web stories", "Dating app horror stories", "Travel horror stories",
+    "True crime stories", "Unsolved mystery stories", "Kidnapping survival stories", "Murder mystery stories",
+    "Detective fiction stories", "Investigation stories", "Historical mystery stories", "Weird history stories",
+    "Urban legend stories", "Mythology stories", "Greek mythology stories", "Norse mythology stories", "Egyptian mythology stories",
+    "Alien abduction stories", "Time travel stories", "Zombie apocalypse stories", "Futuristic dystopian stories",
+    "Corporate greed stories", "Social media gone wrong stories", "Lottery winner stories", "Bully revenge stories",
+    "Teacher vs student stories", "Rich vs poor life lesson stories", "Near death experience stories",
+    "Scary elevator stories", "Scary mall stories", "Scary road trip stories",
+    "Courtroom drama stories", "Weird law stories", "Celebrity scandal stories"
 ]
 
 # Fetch Data Button
